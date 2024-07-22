@@ -1,15 +1,32 @@
-def remove_characters(input_string, n):
-    # Create a new variable to store the modified string
-    modified_string = ""
-    # Check if n is less than or equal to 0 or greater than the length of the input string
-    if n <= 0 or n > len(input_string):
-        modified_string = input_string
-    else:
-        # If n is positive and less than or equal to the length of the input string, remove the first n characters from the input string and store it in the modified_string.
-        modified_string = input_string[n:]
+from cryptography.fernet import Fernet
+import pandas as pd
 
-    print(modified_string)
+def encrypt_ip(ip, key):
+    """Encrypt an IP address using Fernet."""
+    # Create a Fernet instance with the encryption key
+    fernet = Fernet(key)
+    # Encrypt the IP address
+    encrypted_ip = fernet.encrypt(ip.encode('utf-8'))
+    return encrypted_ip
 
-#Example usage:
-test_string = "Hello World"
-remove_characters(test_string, 3)
+def decrypt_ip(encrypted_ip, key):
+    """Decrypt an encrypted IP address using Fernet."""
+    # Create a Fernet instance with the encryption key
+    fernet = Fernet(key)
+    # Decrypt the IP address
+    decrypted_ip = fernet.decrypt(encrypted_ip).decode('utf-8')
+    return decrypted_ip
+
+# Generate a secret key
+key = Fernet.generate_key()
+
+ips = ["xxxx.xxxx.xxxx.xxxx", "xxx.xx.xxx.xx", "xx.xxx.xx.x"]
+encrypted_ips = [encrypt_ip(ip, key) for ip in ips]
+
+# Create a DataFrame with the encrypted IP addresses
+df = pd.DataFrame(encrypted_ips, columns=['Encrypted IP'])
+print(df)
+
+# Decrypt the IP addresses
+decrypted_ips = [decrypt_ip(encrypted_ip, key) for encrypted_ip in encrypted_ips]
+print(decrypted_ips)
