@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.8;
+            color: #444;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input[type="text"], input[type="email"], input[type="date"], input[type="number"], textarea, select {
+            margin-bottom: 10px;
+            padding: 8px;
+            width: 100%;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button[type="submit"], button.edit-button, button.save-button {
+            padding: 8px 20px;
+            background-color: #1abc9c;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover, button.edit-button:hover, button.save-button:hover {
+            background-color: #16a085;
+        }
+
+        .output-section {
+            margin-top: 20px;
+            border-top: 1px solid #ddd;
+            padding: 20px;
+        }
+
+        .output-section p {
+            font-weight: bold;
+        }
+
+        .edit-section {
+            display: none;
+        }
+
+        .clean-error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Details</h1>
+        <form id="myForm" onsubmit="return submitForm();">
+            <input type="text" id="firstName" placeholder="First Name" required>
+            <input type="text" id="lastName" placeholder="Last Name" required>
+            <input type="date" id="dateOfBirth" placeholder="Date of Birth" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="number" id="phone" placeholder="Phone" required>
+            <button type="submit">Submit</button>
+        </form>
+        <div class="output-section" id="output">
+        </div>
+        <div class="edit-section" id="editSection">
+            <button class="edit-button" onclick="cancelEdit()">Cancel</button>
+            <button class="save-button" onclick="saveChanges()">Save</button>
+            <input type="text" id="editFirstName" placeholder="First Name">
+            <input type="text" id="editLastName" placeholder="Last Name">
+            <input type="date" id="editDateOfBirth" placeholder="Date of Birth">
+            <input type="email" id="editEmail" placeholder="Email">
+            <input type="number" id="editPhone" placeholder="Phone">
+        </div>
+    <div id="errorMessage" class="clean-error" style="display:none;">
+    </div>
+    </div>
+
+    <script>
+        function submitForm() {
+         event.preventDefault();
+          const firstName = document.getElementById("firstName").value;
+         const lastName = document.getElementById("lastName").value;
+         const dateOfBirth = document.getElementById("dateOfBirth").value;
+         const email = document.getElementById("email").value;
+         const phone = document.getElementById("phone").value;
+
+         let error= document.getElementById("errorMessage");
+         error.style.display="none";
+         if(isValid(firstName,lastName,dateOfBirth,email,phone)){
+          storeData(firstName,lastName,dateOfBirth,email,phone);
+           displayData(firstName,lastName,dateOfBirth,email,phone);
+          }else{
+            error.style.display="block";
+            error.innerHTML="All fields are required.";
+          }
+        }
+
+      function storeData(firstName, lastName, dateOfBirth, email, phone) {
+        // Here you can save the data to an SQLite database using appropriate methods.
+        // For this demo, we'll just store it in local variables.
+        window.savedData = window.savedData || {};
+        window.savedData.firstName = firstName;
+        window.savedData.lastName = lastName;
+        window.savedData.dateOfBirth = dateOfBirth;
+        window.savedData.email = email;
+        window.savedData.phone = phone;
+    }
+
+    function displayData(firstName, lastName, dateOfBirth, email, phone) {
+         const outputSection = document.getElementById("output");
+         const editSection = document.getElementById("editSection");
+         outputSection.innerHTML = `
+                <p>First Name: ${firstName}</p>
+                <p>Last Name: ${lastName}</p>
+                <p>Date of Birth: ${dateOfBirth}</p>
+                <p>Email: ${email}</p>
+                <p>Phone: ${phone}</p>
+                <button class="edit-button" onclick="editData()">Edit</button>`;
+          editSection.style.display = "none";
+        }
+
+    function editData() {
+        const outputSection = document.getElementById("output");
+        const editSection = document.getElementById("editSection");
+
+        const savedData = window.savedData || {};
+        document.getElementById("editFirstName").value = savedData.firstName;
+        document.getElementById("editLastName").value = savedData.lastName;
+        document.getElementById("editDateOfBirth").value = savedData.dateOfBirth;
+        document.getElementById("editEmail").value = savedData.email;
+        document.getElementById("editPhone").value = savedData.phone;
+
+        outputSection.style.display = "none";
+        editSection.style.display = "block";
+    }
+
+    function cancelEdit() {
+        const outputSection = document.getElementById("output");
+        const editSection = document.getElementById("editSection");
+        outputSection.style.display = "block";
+        editSection.style.display = "none";
+    }
+
+    function saveChanges() {
+        const editedFirstName = document.getElementById("editFirstName").value;
+        const editedLastName = document.getElementById("editLastName").value;
+        const editedDateOfBirth = document.getElementById("editDateOfBirth").value;
+        const editedEmail = document.getElementById("editEmail").value;
+        const editedPhone = document.getElementById("editPhone").value;
+
+        // Validate edited data
+        if (isValid(editedFirstName, editedLastName, editedDateOfBirth, editedEmail, editedPhone)) {
+         storeData(editedFirstName, editedLastName, editedDateOfBirth, editedEmail, editedPhone);
+            displayData(editedFirstName, editedLastName, editedDateOfBirth, editedEmail, editedPhone);
+        } else {
+            alert("Please fill all the fields!");
+        }
+    }
+
+    function isValid(firstName, lastName, dateOfBirth, email, phone) {
+            return firstName.trim()!="" && lastName.trim()!="" && dateOfBirth.trim()!="" && email.trim()!="" && phone.trim()!="";     }
+     </script>
+</body>
+</html>

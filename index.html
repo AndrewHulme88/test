@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Writing Pad</title>
+    <style>
+      /* Updated CSS */
+      .timer {
+        background-color: #f0f0f0; /* increased contrast */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="question-header">
+          <label class="label" for="question">Question</label>
+          <label for="file" class="file-button">Upload</label>
+          <input type="file" id="file" name="file" />
+          <button class="finish-button" aria-label="Finish">Finish</button>
+          <button class="edit-button" aria-label="Edit">Edit</button>
+        </div>
+        <input name="essay" type="text" class="question" id="question" aria-label="Question" />
+        <div class="question-text" role="alert"></div>
+        <img class="question-image" alt="Question Image" />
+        <div class="timer" role="timer">
+          <p>0:00</p>
+          <button aria-label="Start">Start</button>
+        </div>
+      </header>
+      <main>
+        <label class="label" for="essay">Essay</label>
+        <textarea name="essay" id="essay" aria-label="Essay"></textarea>
+        <div class="footer">
+          <p class="word-count">Words: 0</p>
+          <button class="copy" aria-label="Copy">Copy</button>
+        </div>
+      </main>
+    </div>
+    <script>
+      // Updated JavaScript
+      const questionInput = document.querySelector("input.question");
+      const finishButton = document.querySelector(".finish-button");
+      const editButton = document.querySelector(".edit-button");
+      const fileButton = document.querySelector(".file-button");
+      const fileInput = document.getElementById("file");
+
+      const timeValue = document.querySelector(".timer p");
+      const startButton = document.querySelector(".timer button");
+
+      const essay = document.getElementById("essay");
+      const wordCount = document.querySelector(".word-count");
+      const copyButton = document.querySelector(".copy");
+
+      questionInput.addEventListener("input", () => {
+        if (questionInput.value) {
+          finishButton.classList.remove("display-none");
+        }
+      });
+
+      finishButton.addEventListener("click", () => {
+        const question = questionInput.value;
+        const questionText = document.querySelector(".question-text");
+        questionText.textContent = question;
+        questionText.classList.remove("display-none");
+        questionInput.classList.add("display-none");
+        finishButton.classList.add("display-none");
+        editButton.classList.remove("display-none");
+      });
+
+      editButton.addEventListener("click", () => {
+        const questionText = document.querySelector(".question-text");
+        questionText.classList.add("display-none");
+        questionInput.classList.remove("display-none");
+        finishButton.classList.remove("display-none");
+        editButton.classList.add("display-none");
+        const questionImage = document.querySelector(".question-image");
+        questionImage.classList.add("display-none");
+      });
+
+      fileInput.addEventListener("change", () => {
+        const file = fileInput.files[0];
+        const reader = new FileReader();
+        reader.onload = () => {
+          const questionImage = document.querySelector(".question-image");
+          questionImage.src = reader.result;
+          questionImage.classList.remove("display-none");
+          questionInput.classList.add("display-none");
+          editButton.classList.remove("display-none");
+        };
+        reader.readAsDataURL(file);
+      });
+
+      let timer;
+      let startTimestamp;
+
+      startButton.addEventListener("click", () => {
+        startTimestamp = Date.now();
+        timer = setInterval(() => {
+          const time = Math.floor((Date.now() - startTimestamp) / 1000);
+          const minutes = Math.floor(time / 60);
+          const seconds = time % 60;
+          timeValue.textContent = `${minutes}:${
+            seconds < 10 ? "0" : ""
+          }${seconds}`;
+        }, 1000);
+        startButton.classList.add("display-none");
+      });
+
+      essay.addEventListener("input", () => {
+        if (!essay.value) {
+          wordCount.textContent = "Words: 0";
+          return;
+        }
+        wordCount.textContent = `Words: ${essay.value.split(" ").length}`;
+      });
+
+      copyButton.addEventListener("click", () => {
+        essay.select();
+        document.execCommand("copy");
+      });
+    </script>
+  </body>
+</html>

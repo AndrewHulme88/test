@@ -1,0 +1,137 @@
+{
+  "weeklyMealPlan": [
+    {
+      "day": "Monday",
+      "breakfast": {
+        "name": "Veggie Omelet and Whole Grain Toast",
+        "items": ["2 large eggs", "1 cup of spinach", "1/2 bell pepper", "1 slice of whole wheat toast", "1 tablespoon of olive oil"]
+      },
+      "lunch": {
+        "name": "Grilled Chicken and Vegetable Kabobs",
+        "items": ["1 boneless, skinless chicken breast", "1 red bell pepper", "1 zucchini", "1 onion", "olive oil for grilling", "1 whole wheat pita bread"]
+      },
+      "dinner": {
+        "name": "Lemon Garlic Noodles with Shrimp and Asparagus",
+        "items": ["8 ounces whole wheat spaghetti", "1 pound shrimp", "1 bunch asparagus", "2 cloves garlic", "juice of one lemon", "2 tablespoons olive oil",  "salt and pepper to taste"]
+      },
+      "snacks": [
+        {"name": "Apple slices with almond butter", "items": ["1 medium apple", "2 tablespoons of almond butter"]},
+        {"name": "Hard-boiled eggs", "items": ["3 large hard-boiled eggs"]}
+      ]
+    },
+    {
+      "day": "Tuesday",
+      "breakfast": {
+        "name": "Smoothie Bowl",
+        "items": ["1 cup of Greek yogurt", "1 banana", "1 cup of spinach", "1 cup of almond milk", "1/2 cup of mixed berries", "1 tablespoon of chia seeds", "topped with granola and sliced kiwi"]
+      },
+      "lunch": {
+        "name": "Quinoa Power Salad",
+        "items": ["1 cup of quinoa", "1 can of black beans, rinsed and drained", "1 cup of cherry tomatoes", "1 cucumber", "1 avocado", "lime juice", "olive oil", "salt and pepper",  "grilled chicken (optional)"]
+      },
+      "dinner": {
+        "name": "Turkey Meatloaf with Sweet Potato Fries",
+        "items": ["1 pound lean ground turkey", "1/2 onion", "1 egg", "1/4 cup breadcrumbs", "1 teaspoon dried oregano", "1 large sweet potato", "olive oil"]
+      },
+      "snacks": [
+        {"name": "Carrot and hummus sticks", "items": ["1 bunch of carrots", "2 tablespoons of hummus"]},
+        {"name": "Energy Bites", "items": ["1 oatmeal cookie", "1 tablespoon of peanut butter", "1 tablespoon of honey", "a handful of oats", "chopped nuts"]}
+      ]
+    },
+    {
+      "day": "Wednesday",
+      "breakfast": {
+        "name": "Peanut Butter and Banana Whole Wheat Pancakes",
+        "items": ["1 mashed banana", "1/2 cup whole wheat flour", "1 egg", "1 tablespoon peanut butter", "milk (or water)", "Coconut oil for frying"]
+      },
+      "lunch": {
+        "name": "Tuna Salad Lettuce Wraps",
+        "items": ["2 cans of light tuna", "2 celery stalks", "1/2 red onion", "mayonnaise", "dijon mustard", "lettuce leaves", "whole wheat crackers (for side)"]
+      },
+      "dinner": {
+        "name": "Beef and Vegetable Stir-fry",
+        "items": ["1 lean beef steak", "1 bell pepper", "1 onion", "broccoli", "carrots", "brown rice or noodles", "soy sauce or teriyaki sauce", "sesame oil"]
+      },
+      "snacks": [
+        {"name": "Greek yogurt with berries and granola", "items": ["6 ounces of Greek yogurt", "1/2 cup of mixed berries", "a handful of granola"]},
+        {"name": "Orange and cottage cheese", "items": ["1 medium orange", "1/2 cup of cottage cheese"]}
+      ]
+    },
+    {
+      "day": "Thursday",
+      "breakfast": {
+        "name": "Chia Seed Pudding",
+        "items": ["1/2 cup chia seeds", "4 cups coconut milk", "1/2 teaspoon vanilla extract", "topped with fresh fruit and nuts"]
+      },
+      "lunch": {
+        "name": "Lentil Soup",
+        "items": ["1 cup dried lentils", "6 cups vegetable broth", "onion, carrot, and celery", "can of diced tomatoes", "spices (paprika, cumin, salt, pepper)",  "sliced bread for dipping"]
+      },
+      "dinner": {
+        "name": "Salmon with Roasted Vegetables",
+        "items": ["4 salmon fillets", "2 sweet potatoes", "1 Brussels sprouts", "1 zucchini", "olive oil", "lemon zest and juice", "salt and pepper"]
+      },
+      "snacks": [
+        {"name": "Apple slices with peanut butter",  "items": ["1 apple", "2 tablespoons of peanut butter"]},
+        {"name": "Hard-boiled eggs and a handful of nuts", "items": ["3 hard-boiled eggs", "1 ounce of almonds"]}
+      ]
+    },
+    {
+      "day": "Friday",
+      "breakfast": {
+        "name": "Avocado Toast with Poached Egg",
+        "items": ["2 slices of whole grain toast", "1 ripe avocado", "1 large egg", "salt and pepper", "a sprinkle of paprika"]
+      },
+      "lunch": {
+        "name": "Turkey and Cheese Wrap",
+        "items": ["1 whole wheat tortilla", "2 slices of turkey", "1 slice of low-fat cheese", "lettuce", "tomato", "mustard",  "baby carrots on the side"]
+      },
+      "dinner": {
+        "name": "Chicken Fajitas",
+        "items": ["1 pound chicken breast", "1 bell pepper", "1 onion", "whole wheat tortillas", "salsa", "sour cream (optional)", "guacamole (optional)"]
+      },
+      "snacks": [
+        {"name": "Banana with almond butter", "items": ["1 medium banana", "1 tablespoon of almond butter"]},
+        {"name": "Protein shake", "items": ["1 scoop of protein powder", "1 cup of milk", "1 banana", "spinach"]}
+      ]
+    },
+    {
+      "day": "Saturday",
+      "breakfast": {
+        "name": "Breakfast Burrito",
+        "items": ["1 whole wheat tortilla", "scrambled eggs", "black beans", "sautéed spinach", "shredded cheese", "salsa", and a dollop of Greek yogurt"]
+      },
+      "lunch": {
+        "name": "Vegetarian Chili",
+        "items": ["1 can of kidney beans", "1 can of black beans", "1 can of diced tomatoes", "onion", "bell pepper", "chili powder", "cumin", "corn", "brown rice or cornbread (for serving)"]
+      },
+      "dinner": {
+        "name": "Grilled Steak and Vegetable Kebabs",
+        "items": ["1 steak (marinate in olive oil, herbs, and garlic)", "bell peppers", "onion", "cherry tomatoes", "zucchini",  "bamboo skewers"]
+      },
+      "snacks": [
+        {"name": "Ants on a Log", "items": ["Celery sticks filled with peanut or almond butter", "raisins"]},
+        {"name": "Yogurt Parfait", "items": ["Greek yogurt", "granola", "fresh berries"]}
+      ]
+    },
+    {
+      "day": "Sunday",
+      "breakfast": {
+        "name": "Scrambled eggs with veggies and whole wheat toast",
+        "items": The same as Monday's breakfast
+      },
+      "lunch": {
+        "name": "Leftover Chili from Saturday",
+        "items": Reheat and enjoy the chili from Saturday's lunch
+      },
+      "dinner": {
+        "name": "Baked Chicken and Sweet Potato",
+        "items": ["2 boneless, skinless chicken breasts", "2 sweet potatoes", "olive oil", "salt, pepper, and your favorite herbs", "rosemary"]
+      },
+      "snacks": [
+        {"name": "Apple slices with cinnamon", "items": ["1 apple", "a sprinkle of cinnamon"]},
+        {"name": "A small bowl of mixed nuts", "items": ["A handful of almonds, walnuts, and cashews"]}
+      ]
+    }
+  ]
+}

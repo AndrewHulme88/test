@@ -1,0 +1,67 @@
+[
+  {
+    "platform": "Facebook",
+    "activeUsers": "2.96 billion",
+    "engagementRate": 2.74,
+    "postsPerDay": 700.0,
+    "country": {
+      "United States": 162.0,
+      "India": 150.0,
+      "Brazil": 79.0,
+      "Indonesia": 67.0,
+      "Pakistan": 56.0
+    }
+  },
+  {
+    "platform": "YouTube",
+    "activeUsers": "2.56 billion",
+    "watchHoursPerDay": 440.0,
+    "channels": "5.0 billion",
+    "country": {
+      "United States": 186.0,
+      "India": 136.0,
+      "Brazil": 85.0,
+      "Japan": 66.0,
+      "Russia": 55.0
+    }
+  },
+  {
+    "platform": "WhatsApp",
+    "activeUsers": "2.24 billion",
+    "messagesSentPerDay": "60.0 billion",
+    "callsMadePerDay": "1.4 billion",
+    "country": {
+      "India": 415.0,
+      "Brazil": 122.0,
+      "Indonesia": 96.0,
+      "Mexico": 87.0,
+      "Russia": 79.0
+    }
+  },
+  {
+    "platform": "Instagram",
+    "activeUsers": "1 billion",
+    "postsPerDay": "500.0 million",
+    "storiesPerDay": "500.0 million",
+    "country": {
+      "United States": 111.0,
+      "India": 107.0,
+      "Brazil": 55.0,
+      "Indonesia": 39.0,
+      "Russia": 33.0
+    }
+  },
+  {
+    "platform": "Twitter",
+    "activeUsers": "330 million",
+    "tweetsPerDay": "6 billion",
+    "retweetsPerDay": "1.2 billion",
+    "country": {
+      "United States": 93.0,
+      "India": 50.0,
+      "Japan": 35.0,
+      "Indonesia": 27.0,
+      "Turkey": 25.0
+     }
+  }
+]
