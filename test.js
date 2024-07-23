@@ -1,57 +1,61 @@
-import numpy as np
-import matplotlib.pyplot as plt
-from run_kut5 import integrate
+/**
+ * A stoppable timer service that executes a callback function at a specified interval.
+ */
+class StoppableTimerService {
+  private timespan: number;
+  private callback: () => void | Promise<void>;
+  private cancellation: CancellationTokenSource;
+  private intervalId: number | null = null;
 
-# Example 1: y' = -y, y(0) = 1
-# Exact solution: y(x) = e^(-x)
-def f1(x, y):
-    return -y
+  /**
+   * Constructs a new instance of the StoppableTimerService class.
+   * @param timespan The interval at which the callback function is executed.
+   * @param callback The callback function to execute.
+   */
+  constructor(timespan: number, callback: () => void | Promise<void>) {
+      if (timespan <= 0) {
+          throw new Error('Timespan must be a positive number');
+      }
+      if (typeof callback !== 'function') {
+          throw new Error('Callback must be a function');
+      }
+      this.timespan = timespan;
+      this.callback = callback;
+      this.cancellation = new CancellationTokenSource();
+  }
 
-x1, y1 = integrate(f1, 0, 1, 10, 0.01)
-x1_exact = np.linspace(0, 10, 100)
-y1_exact = np.exp(-x1_exact)
+  /**
+   * Starts the timer.
+   */
+  public start(): void {
+      const cts = this.cancellation; // safe copy
+      this.intervalId = setInterval(() => {
+          try {
+              if (cts.token.isCancellationRequested) return;
+              this.callback();
+          } catch (error) {
+              // Handle the error
+              throw error; // Re-throw the error
+          }
+      }, this.timespan);
+  }
 
-plt.figure(figsize=(10, 6))
-plt.plot(x1, y1, label='Numerical solution', color='blue')
-plt.plot(x1_exact, y1_exact, label='Exact solution', color='red', linestyle='--')
-plt.xlabel('x')
-plt.ylabel('y')
-plt.title("Example 1: y' = -y")
-plt.legend()
-plt.show()
+  /**
+   * Stops the timer.
+   */
+  public stop(): void {
+      if (this.intervalId !== null) {
+          clearInterval(this.intervalId);
+          this.intervalId = null;
+      }
+      this.cancellation.cancel();
+      this.cancellation = new CancellationTokenSource();
+  }
 
-# Example 2: y'' = -y, y(0) = 1, y'(0) = 0
-# Exact solution: y(x) = cos(x)
-def f2(x, y):
-    return np.array([y[1], -y[0]])
-
-x2, y2 = integrate(f2, 0, np.array([1, 0]), 10, 0.01)
-x2_exact = np.linspace(0, 10, 100)
-y2_exact = np.cos(x2_exact)
-
-plt.figure(figsize=(10, 6))
-plt.plot(x2, y2[:, 0], label='Numerical solution', color='blue')
-plt.plot(x2_exact, y2_exact, label='Exact solution', color='red', linestyle='--')
-plt.xlabel('x')
-plt.ylabel('y')
-plt.title("Example 2: y'' = -y")
-plt.legend()
-plt.show()
-
-# Example 3: y' = 2x, y(0) = 1
-# Exact solution: y(x) = x^2 + 1
-def f3(x, y):
-    return 2 * x
-
-x3, y3 = integrate(f3, 0, 1, 10, 0.01)
-x3_exact = np.linspace(0, 10, 100)
-y3_exact = x3_exact**2 + 1
-
-plt.figure(figsize=(10, 6))
-plt.plot(x3, y3, label='Numerical solution', color='blue')
-plt.plot(x3_exact, y3_exact, label='Exact solution', color='red', linestyle='--')
-plt.xlabel('x')
-plt.ylabel('y')
-plt.title("Example 3: y' = 2x")
-plt.legend()
-plt.show()
+  /**
+   * Disposes of any resources held by the timer.
+   */
+  public dispose(): void {
+      // Dispose logic goes here if needed
+  }
+}
