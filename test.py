@@ -1,37 +1,19 @@
-def binary_search(sorted_list, target, compare_func):
-    low = 0
-    high = len(sorted_list) - 1
+arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-    while low <= high:
-        mid = (low + high) // 2
-        if compare_func(sorted_list[mid], target):
-            low = mid + 1
-        elif compare_func(target, sorted_list[mid]):
-            high = mid - 1
-        else:
-            return mid
+def compare(x, y):
+    return x - y
 
-    return -1
+index = binary_search(arr, 5, compare)
+print(index)  # Output: 4
 
-#Example usage:
-num_list = [0, 1, 2, 8, 13, 17, 19, 32, 42]
+def compare_str(x, y):
+    if x < y:
+        return -1
+    elif x == y:
+        return 0
+    else:
+        return 1
 
-def less_than(a, b):
-    return a < b
-
-def equal_to(a, b):
-    return a == b
-
-target = 13
-index = binary_search(num_list, target, less_than)
-if index != -1:
-    print(f"Found {target} at index {index}")
-else:
-    print(f"{target} not found in the list")
-
-target = 15
-index = binary_search(num_list, target, equal_to)
-if index != -1:
-    print(f"Found {target} at index {index}")
-else:
-    print(f"{target} not found in the list")
+arr_str = ["apple", "banana", "cherry", "date", "elderberry"]
+index = binary_search(arr_str, "date", compare_str)
+print(index)  # Output: 3
