@@ -1,6 +1,3 @@
-Here's a HTML/CSS snippet for a blogger with the specified requirements:
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,52 +5,145 @@ Here's a HTML/CSS snippet for a blogger with the specified requirements:
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Responsive Image Grid with Hover Effect</title>
 <style>
-/* Base grid setup */
-.image-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Creates a responsive grid */
-    gap: 16px; /* Space between items */
-    padding: 16px; /* Padding around the grid */
-}
 
-.image-item {
-    transition: transform 0.3s ease; /* Smooth transition for hover effect */
-}
-
-.image-item img {
-    width: 100%; /* Ensure images fill their container */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 8px; /* Optional: rounds the corners of the images */
-}
-
-/* Hover effect */
-.image-item:hover {
-    transform: scale(1.05); /* Enlarges the item slightly */
-}
-
-.caption {
-    text-align: center; /* Centers the caption text */
-    margin-top: 8px; /* Space between image and caption */
-}
-
-/* Responsive adjustments */
-@media (max-width: 600px) {
-    .image-grid {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Adjusts grid columns for smaller screens */
-    }
-}
 </style>
 </head>
 <body>
-  <div class="image-grid">
-    <div class="image-item">
-        <img src="path-to-your-image1.jpg" alt="Caption One">
-        <p class="caption">Caption One</p>
+  <div class="panel" id="utilityServiceDocumentStep3">
+    <div class="panel-header">
+      <span id="itemDescriptionIdentifier"></span>
     </div>
-    <div class="image-item">
-        <img src="path-to-your-image2.jpg" alt="Caption Two">
-        <p class="caption">Caption Two</p>
+    <div id="loader" style="display: none;"></div>
+    <div id="documentContent" class="row px-3 d-mobile-none" style="display: none;">
+      <div class="col-12 col-md-2 font-weight-bold">Date Created</div>
+      <div class="col-12 col-md-5 font-weight-bold">Document Type</div>
+      <div id="periodColName" class="col-sm-6 col-12 col-md-3 font-weight-bold"></div>
+      <div class="col-sm-6 col-12 col-md-2 font-weight-bold">Actions</div>
     </div>
-    <!-- Add more items similarly -->
-</div>
+    <div id="documentsCollection"></div>
+  </div>
+
+  <script>
+    // Mock data for the sake of example
+    const utilityService = {
+      documentStep: 3,
+      periodColName: 'Period'
+    };
+    const item = {
+      description: 'Item Description',
+      identifier: 'Item Identifier'
+    };
+    const documentsCollection = {
+      key1: {
+        key: 'Key 1',
+        mapdocumentItems: [
+          {
+            isCurrentDocument: true,
+            documentCycleDate: '2024-07-23',
+            isNewDocument: true,
+            documentType: 'DOC',
+            documentDescription: 'Document Description 1',
+            documentEffectiveDate: '2024-01-01',
+            documentExpiryDate: '2024-12-31',
+            documentId: '1'
+          }
+        ],
+        showAll: [
+          {
+            docId: '1',
+            isFirst: true,
+            isShowed: false,
+            anyMore: true
+          }
+        ]
+      }
+    };
+
+    const isLoading = false;
+    const miniCollapse = false;
+    const disableAction = false;
+
+    function openDocument(documentId, documentType) {
+      // Implement your logic here
+      console.log('Open Document:', documentId, documentType);
+    }
+
+    function toggleCollapse(show) {
+      return show ? 'Show' : 'Hide';
+    }
+
+    function showNewDocTag3() {
+      return 'New';
+    }
+
+    function getAllDocumentItems(key, mapdocumentItems, documentId) {
+      // Implement your logic here
+      console.log('Get All Document Items:', key, mapdocumentItems, documentId);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      if (utilityService.documentStep === 3) {
+        document.getElementById('itemDescriptionIdentifier').innerText = `${item.description} - ${item.identifier}`;
+        if (isLoading) {
+          document.getElementById('loader').style.display = 'block';
+        } else {
+          document.getElementById('documentContent').style.display = 'flex';
+          document.getElementById('periodColName').innerText = utilityService.periodColName;
+
+          const documentsContainer = document.getElementById('documentsCollection');
+          for (const [key, collection] of Object.entries(documentsCollection)) {
+            const headerDiv = document.createElement('div');
+            headerDiv.className = 'col-12 font-weight-bold document-type py-1';
+            headerDiv.style.backgroundColor = '#cccccc';
+            headerDiv.innerHTML = `<span style="font-size:15px; font-weight: bold;">${collection.key}</span>`;
+            documentsContainer.appendChild(headerDiv);
+
+            for (const documentItem of collection.mapdocumentItems) {
+              const documentRow = document.createElement('div');
+              documentRow.className = 'col-12';
+              documentRow.innerHTML = `
+                <div class="row p-2">
+                  <div class="col-12 col-lg-2">
+                    <span class="d-desktop-none mx-0" style="text-align: left"><strong>Date Created: </strong></span>
+                    ${documentItem.documentCycleDate}
+                  </div>
+                  <div class="col-12 col-lg-5">
+                    ${documentItem.isNewDocument && documentItem.documentType !== 'PC' ? `
+                      <span class="badge badge-pill badge-danger">! ${showNewDocTag3()}</span>` : ''}
+                    <span class="d-desktop-none mx-0" style="text-align: left"><strong>Document Type: </strong></span>
+                    <span style="font-size:15px;">${documentItem.documentDescription}</span>
+                  </div>
+                  <div class="col-12 col-sm-9 col-lg-3">
+                    ${documentItem.documentEffectiveDate || documentItem.documentExpiryDate ? `
+                      <span class="d-desktop-none mx-0" style="text-align: left"><strong>${utilityService.policyPeriodColName}: </strong></span>
+                      ${documentItem.documentEffectiveDate} - ${documentItem.documentExpiryDate}` : ''}
+                  </div>
+                  <div class="col-12 col-sm-3 col-lg-2">
+                    <button ${disableAction ? 'disabled' : ''} class="btn btn-primary mt-1" onclick="openDocument('${documentItem.documentId}', '${documentItem.documentType}')">View</button>
+                    &nbsp;
+                    ${documentItem.documentType !== 'MC' ? `
+                      ${collection.showAll.map(showes => `
+                        ${showes.docId === documentItem.documentId && showes.isFirst ? `
+                          <button ${disableAction ? 'disabled' : ''} class="fa fa-plus-circle btn px-0 biggerIsBetter" onclick="getAllDocumentItems('${collection.key}', collection.mapdocumentItems, '${documentItem.documentId}')">
+                            ${toggleCollapse(true)}
+                          </button>` : ''}
+                        ${showes.docId === documentItem.documentId && !showes.isFirst && showes.anyMore ? `
+                          <span style="color:#004b8d; cursor:pointer;" onclick="showes.isShowed = !showes.isShowed">
+                            ${showes.isShowed ? `<span class="fa fa-minus-circle biggerIsBetter">${toggleCollapse(false)}</span>` : `
+                            <span class="fa fa-plus-circle biggerIsBetter">${toggleCollapse(true)}</span>`}
+                          </span>` : ''}
+                      `).join('')}` : ''}
+                  </div>
+                </div>
+                <div class="col-12 py-0" style="border-bottom: 2px solid #cccccc;">&nbsp;</div>
+              `;
+              documentsContainer.appendChild(documentRow);
+            }
+          }
+        }
+      }
+    });
+  </script>
+
+
 </body>
