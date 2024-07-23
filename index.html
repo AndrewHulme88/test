@@ -1,123 +1,110 @@
+Here's a HTML/CSS snippet for a blogger with the specified requirements:
+
+
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Writing Pad</title>
-    <style>
-      /* Updated CSS */
-      .timer {
-        background-color: #f0f0f0; /* increased contrast */
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <header>
-        <div class="question-header">
-          <label class="label" for="question">Question</label>
-          <label for="file" class="file-button">Upload</label>
-          <input type="file" id="file" name="file" />
-          <button class="finish-button" aria-label="Finish">Finish</button>
-          <button class="edit-button" aria-label="Edit">Edit</button>
-        </div>
-        <input name="essay" type="text" class="question" id="question" aria-label="Question" />
-        <div class="question-text" role="alert"></div>
-        <img class="question-image" alt="Question Image" />
-        <div class="timer" role="timer">
-          <p>0:00</p>
-          <button aria-label="Start">Start</button>
-        </div>
-      </header>
-      <main>
-        <label class="label" for="essay">Essay</label>
-        <textarea name="essay" id="essay" aria-label="Essay"></textarea>
-        <div class="footer">
-          <p class="word-count">Words: 0</p>
-          <button class="copy" aria-label="Copy">Copy</button>
-        </div>
-      </main>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Image Grid with Hover Effect</title>
+<style>
+    /* Reset default styles to remove any unwanted browser styles */
+    * {
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    /* Style the container */
+    .image-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 16px;
+        padding: 16px;
+        justify-content: center;
+        align-items: center;
+        /* Make the grid responsive */
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* Style the image items */
+    .image-item {
+        position: relative;
+        cursor: pointer;
+        /* The image will have a maximum width and height of 100% of the container.
+        When the container resizes, the image will adjust automatically. */
+        max-width: 100%;
+        max-height: 100%;
+        /* Add a slight shadow to the image */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+        /* Transition for the hover effect */
+        transition: transform 0.2s ease;
+    }
+
+    /* Image caption */
+    .image-caption {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 10px;
+        font-size: 14px;
+        /* Hide the caption by default */
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    }
+
+    /* Hover effect */
+    .image-item:hover {
+        /* Scale the image up slightly on hover */
+        transform: scale(1.03);
+    }
+
+    .image-item:hover .image-caption {
+        /* Show the caption on hover */
+        opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+        /* For mobile devices, change the number of columns to 2 */
+        .image-grid {
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        }
+    }
+</style>
+</head>
+<body>
+<h1>Responsive Image Grid</h1>
+
+<div class="image-grid">
+
+    <!-- Image item 1 -->
+    <div class="image-item">
+        <img src="https://via.placeholder.com/300x200" alt="Image 1">
+        <div class="image-caption">Caption for Image 1</div>
     </div>
-    <script>
-      // Updated JavaScript
-      const questionInput = document.querySelector("input.question");
-      const finishButton = document.querySelector(".finish-button");
-      const editButton = document.querySelector(".edit-button");
-      const fileButton = document.querySelector(".file-button");
-      const fileInput = document.getElementById("file");
 
-      const timeValue = document.querySelector(".timer p");
-      const startButton = document.querySelector(".timer button");
+    <!-- Image item 2 -->
+    <div class="image-item">
+        <img src="https://via.placeholder.com/300x200" alt="Image 2">
+        <div class="image-caption">Caption for Image 2</div>
+    </div>
 
-      const essay = document.getElementById("essay");
-      const wordCount = document.querySelector(".word-count");
-      const copyButton = document.querySelector(".copy");
+    <!-- Add more image items as needed -->
 
-      questionInput.addEventListener("input", () => {
-        if (questionInput.value) {
-          finishButton.classList.remove("display-none");
-        }
-      });
+    <div class="image-item">
+        <img src="https://via.placeholder.com/300x200" alt="Image 3">
+        <div class="image-caption">Caption for Image 3</div>
+    </div>
 
-      finishButton.addEventListener("click", () => {
-        const question = questionInput.value;
-        const questionText = document.querySelector(".question-text");
-        questionText.textContent = question;
-        questionText.classList.remove("display-none");
-        questionInput.classList.add("display-none");
-        finishButton.classList.add("display-none");
-        editButton.classList.remove("display-none");
-      });
+    <div class="image-item">
+        <img src="https://via.placeholder.com/300x200" alt="Image 4">
+        <div class="image-caption">Caption for Image 4</div>
+    </div>
 
-      editButton.addEventListener("click", () => {
-        const questionText = document.querySelector(".question-text");
-        questionText.classList.add("display-none");
-        questionInput.classList.remove("display-none");
-        finishButton.classList.remove("display-none");
-        editButton.classList.add("display-none");
-        const questionImage = document.querySelector(".question-image");
-        questionImage.classList.add("display-none");
-      });
-
-      fileInput.addEventListener("change", () => {
-        const file = fileInput.files[0];
-        const reader = new FileReader();
-        reader.onload = () => {
-          const questionImage = document.querySelector(".question-image");
-          questionImage.src = reader.result;
-          questionImage.classList.remove("display-none");
-          questionInput.classList.add("display-none");
-          editButton.classList.remove("display-none");
-        };
-        reader.readAsDataURL(file);
-      });
-
-      let timer;
-      let startTimestamp;
-
-      startButton.addEventListener("click", () => {
-        startTimestamp = Date.now();
-        timer = setInterval(() => {
-          const time = Math.floor((Date.now() - startTimestamp) / 1000);
-          const minutes = Math.floor(time / 60);
-          const seconds = time % 60;
-          timeValue.textContent = `${minutes}:${
-            seconds < 10 ? "0" : ""
-          }${seconds}`;
-        }, 1000);
-        startButton.classList.add("display-none");
-      });
-
-      essay.addEventListener("input", () => {
-        if (!essay.value) {
-          wordCount.textContent = "Words: 0";
-          return;
-        }
-        wordCount.textContent = `Words: ${essay.value.split(" ").length}`;
-      });
-
-      copyButton.addEventListener("click", () => {
-        essay.select();
-        document.execCommand("copy");
-      });
-    </script>
-  </body>
-</html>
+    <div class="image-item">
+        <img src="https://via.placeholder.com/300x200" alt="Image 4">
+    </div>
+</div>
