@@ -1,61 +1,23 @@
-/**
- * A stoppable timer service that executes a callback function at a specified interval.
- */
-class StoppableTimerService {
-  private timespan: number;
-  private callback: () => void | Promise<void>;
-  private cancellation: CancellationTokenSource;
-  private intervalId: number | null = null;
-
-  /**
-   * Constructs a new instance of the StoppableTimerService class.
-   * @param timespan The interval at which the callback function is executed.
-   * @param callback The callback function to execute.
-   */
-  constructor(timespan: number, callback: () => void | Promise<void>) {
-      if (timespan <= 0) {
-          throw new Error('Timespan must be a positive number');
+const data = {
+  "id": 1,
+  "title": "Random",
+  "user_projects": [
+    {
+      "id": 1,
+      "pivot": {
+        "user_id": 1
       }
-      if (typeof callback !== 'function') {
-          throw new Error('Callback must be a function');
+    },
+    {
+      "id": 22,
+      "pivot": {
+        "user_id": 22
       }
-      this.timespan = timespan;
-      this.callback = callback;
-      this.cancellation = new CancellationTokenSource();
-  }
+    }
+  ]
+};
 
-  /**
-   * Starts the timer.
-   */
-  public start(): void {
-      const cts = this.cancellation; // safe copy
-      this.intervalId = setInterval(() => {
-          try {
-              if (cts.token.isCancellationRequested) return;
-              this.callback();
-          } catch (error) {
-              // Handle the error
-              throw error; // Re-throw the error
-          }
-      }, this.timespan);
-  }
-
-  /**
-   * Stops the timer.
-   */
-  public stop(): void {
-      if (this.intervalId !== null) {
-          clearInterval(this.intervalId);
-          this.intervalId = null;
-      }
-      this.cancellation.cancel();
-      this.cancellation = new CancellationTokenSource();
-  }
-
-  /**
-   * Disposes of any resources held by the timer.
-   */
-  public dispose(): void {
-      // Dispose logic goes here if needed
-  }
+// Loop through the user_projects array and log each user_id
+for (const user_project of data.user_projects) {
+  console.log(user_project.pivot.user_id);
 }
