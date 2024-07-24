@@ -1,39 +1,21 @@
-def calculate_area(shape, dimensions):
-    """
-    Calculate the area of a given shape based on user input.
+import pandas as pd
 
-    Parameters:
-    shape (str): The shape for which to calculate the area. Can be 'circle', 'rectangle', or 'triangle'.
-    dimensions (list): A list of dimensions for the shape. The length and order of the list depend on the shape:
-        - For a circle, the list should contain one number: the radius.
-        - For a rectangle, the list should contain two numbers: the length and the width.
-        - For a triangle, the list should contain three numbers: the base, the height, and the third side length.
+# Sample DataFrame df1
+df1 = pd.DataFrame({
+    'Group': ['A', 'B', 'A', 'B', 'A', 'B'],
+    'Value': [10, 20, 30, 40, 50, 60]
+})
 
-    Returns:
-    float: The area of the shape.
-    """
+# Sample DataFrame df2 with the same groups
+df2 = pd.DataFrame({
+    'Group': ['A', 'B', 'A', 'B', 'A', 'B'],
+    'OtherValue': [1, 2, 3, 4, 5, 6]
+})
 
-    # Calculate the area based on the shape
-    if shape.lower() == 'circle':
-        # Area of a circle is calculated using the formula πr²
-        area = 3.14159 * (dimensions[0] ** 2)
-    elif shape.lower() == 'rectangle':
-        # Area of a rectangle is calculated using the formula lw
-        area = dimensions[0] * dimensions[1]
-    elif shape.lower() == 'triangle':
-        # Area of a triangle is calculated using the formula 1/2bh
-        area = 0.5 * dimensions[0] * dimensions[1]
-    else:
-        # If the shape is not recognized, raise an error
-        raise ValueError(f"Invalid shape '{shape}'. Supported shapes are 'circle', 'rectangle', and 'triangle'.")
+# Compute the mean value for each group in df1
+mean_values = df1.groupby('Group')['Value'].mean()
 
-    return area
+# Map the mean values to df2 based on the group
+df2['MeanValue'] = df2['Group'].map(mean_values)
 
-# Example for a circle with radius 5
-print(calculate_area('circle', [5]))
-
-# Example for a rectangle with length 4 and width 6
-print(calculate_area('rectangle', [4, 6]))
-
-# Example for a triangle with base 5, height 7, and third side length 8
-print(calculate_area('triangle', [5, 7, 8]))
+print(df2)
