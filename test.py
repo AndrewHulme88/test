@@ -1,67 +1,39 @@
-import math
-
-def calculate_area(shape, *dimensions):
+def calculate_area(shape, dimensions):
     """
-    This function calculates the area of different geometric shapes based on the user's input.
-    The function takes the shape type as the first argument and the necessary dimensions as variable arguments.
+    Calculate the area of a given shape based on user input.
 
-    Args:
-        shape (str): The type of shape for which the area is to be calculated. Valid shapes are 'circle', 'rectangle', and 'triangle'.
-        *dimensions (float or int): The dimensions required for calculating the area of the specified shape. The number of dimensions depends on the shape.
-
-    Raises:
-        ValueError: If the shape type is not 'circle', 'rectangle', or 'triangle'.
-        ValueError: If the number of dimensions provided is incorrect for the given shape.
+    Parameters:
+    shape (str): The shape for which to calculate the area. Can be 'circle', 'rectangle', or 'triangle'.
+    dimensions (list): A list of dimensions for the shape. The length and order of the list depend on the shape:
+        - For a circle, the list should contain one number: the radius.
+        - For a rectangle, the list should contain two numbers: the length and the width.
+        - For a triangle, the list should contain three numbers: the base, the height, and the third side length.
 
     Returns:
-        float: The calculated area of the specified shape.
+    float: The area of the shape.
     """
-    if shape == "circle":
-        # Check if exactly one dimension (radius) is provided for a circle.
-        if len(dimensions) != 1:
-            raise ValueError("For a circle, exactly one dimension (radius) is required.")
-        radius = dimensions[0]
-        return math.pi * radius * radius
-    elif shape == "rectangle":
-        # Check if exactly two dimensions (length and width) are provided for a rectangle.
-        if len(dimensions) != 2:
-            raise ValueError("For a rectangle, exactly two dimensions (length and width) are required.")
-        length = dimensions[0]
-        width = dimensions[1]
-        return length * width
-    elif shape == "triangle":
-        # Check if exactly three dimensions (base and height) are provided for a triangle.
-        if len(dimensions) != 2:
-            raise ValueError("For a triangle, exactly two dimensions (base and height) are required.")
-        base = dimensions[0]
-        height = dimensions[1]
-        return 0.5 * base * height
+
+    # Calculate the area based on the shape
+    if shape.lower() == 'circle':
+        # Area of a circle is calculated using the formula πr²
+        area = 3.14159 * (dimensions[0] ** 2)
+    elif shape.lower() == 'rectangle':
+        # Area of a rectangle is calculated using the formula lw
+        area = dimensions[0] * dimensions[1]
+    elif shape.lower() == 'triangle':
+        # Area of a triangle is calculated using the formula 1/2bh
+        area = 0.5 * dimensions[0] * dimensions[1]
     else:
-        raise ValueError(f"Invalid shape type. Valid shapes are 'circle', 'rectangle', and 'triangle'.")
+        # If the shape is not recognized, raise an error
+        raise ValueError(f"Invalid shape '{shape}'. Supported shapes are 'circle', 'rectangle', and 'triangle'.")
 
-# Examples of how to call the function for each shape type:
-# Calculating the area of a circle:
-try:
-    radius = float(input("Enter the radius of the circle: "))
-    circle_area = calculate_area("circle", radius)
-    print(f"The area of the circle with radius {radius} is: {circle_area:.2f}")
-except ValueError as ve:
-    print(f"Error: {ve}")
+    return area
 
-# Calculating the area of a rectangle:
-try:
-    length = float(input("Enter the length of the rectangle: "))
-    width = float(input("Enter the width of the rectangle: "))
-    rectangle_area = calculate_area("rectangle", length, width)
-    print(f"The area of the rectangle with length {length} and width {width} is: {rectangle_area:.2f}")
-except ValueError as ve:
-    print(f"Error: {ve}")
+# Example for a circle with radius 5
+print(calculate_area('circle', [5]))
 
-# Calculating the area of a triangle:
-try:
-    base = float(input("Enter the base of the triangle: "))
-    height = float(input("Enter the height of the triangle: "))
-    triangle_area = calculate_area("triangle", base, height)
-    print(f"The area of the triangle with base {base} and height {height} is: {triangle_area:.2f}")
-except ValueError as ve:
-    print(f"Error: {ve}")
+# Example for a rectangle with length 4 and width 6
+print(calculate_area('rectangle', [4, 6]))
+
+# Example for a triangle with base 5, height 7, and third side length 8
+print(calculate_area('triangle', [5, 7, 8]))
