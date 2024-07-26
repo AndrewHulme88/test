@@ -1,50 +1,97 @@
 [
   {
-    "name": "Adolf Hitler",
-    "country": "Germany",
-    "yearOfBirth": 1889,
-    "yearOfDeath": 1945,
-    "lengthOfService": "1933-1945",
-    "fact": "Chancellor of Germany from 1933 to 1945 and Führer of Nazi Germany from 1934 to 1945."
+    "name": "Edgar 'Eddie' Blackwood",
+    "gender": "male",
+    "race": "human",
+    "class": "Archaeologist",
+    "backstory": "A brilliant but reckless archaeologist, Eddie stumbled upon an ancient, forbidden cult while excavating a dig in Miskatonic University. Driven by his insatiable thirst for knowledge, he now finds himself entangled in a web of cosmic horrors.",
+    "stats": {
+      "strength": 8,
+      "constitution": 12,
+      "power": 6,
+      "dexterity": 10,
+      "appearance": 10,
+      "size": 6,
+      "intelligence": 14,
+      "education": 16,
+      "luck": 4,
+      "sanity": 13
+    }
   },
   {
-    "name": "Joseph Stalin",
-    "country": "Soviet Union",
-    "yearOfBirth": 1878,
-    "yearOfDeath": 1953,
-    "lengthOfService": "1922-1953",
-    "fact": "General Secretary of the Communist Party of the Soviet Union from 1922 to 1953 and Leader of the Soviet Union from 1924 to 1953."
+    "name": "Abigail 'Abby' Turner",
+    "gender": "female",
+    "race": "human",
+    "class": "Private Investigator",
+    "backstory": "A former journalist turned private investigator, Abby is haunted by a past case that exposed government cover-ups. She now uses her skills to uncover the truth, often finding herself drawn to the occult and the supernatural.",
+    "stats": {
+      "strength": 10,
+      "constitution": 12,
+      "power": 4,
+      "dexterity": 12,
+      "appearance": 12,
+      "size": 6,
+      "intelligence": 12,
+      "education": 14,
+      "luck": 6,
+      "sanity": 14
+    }
   },
   {
-    "name": "Franklin D. Roosevelt",
-    "country": "United States",
-    "yearOfBirth": 1882,
-    "yearOfDeath": 1945,
-    "lengthOfService": "1933-1945",
-    "fact": "32nd President of the United States from 1933 to 1945, leading the country through the Great Depression and World War II."
+    "name": "Henry 'Hank' West",
+    "gender": "male",
+    "race": "human",
+    "class": "Rookie Cop",
+    "backstory": "An eager and idealistic young police officer, Hank was recently transferred to Arkham to work on a special task force investigating occult crimes. Determined to prove himself, he is unafraid to confront the dark forces he encounters.",
+    "stats": {
+      "strength": 12,
+      "constitution": 14,
+      "power": 2,
+      "dexterity": 10,
+      "appearance": 8,
+      "size": 6,
+      "intelligence": 10,
+      "education": 12,
+      "luck": 5,
+      "sanity": 15
+    }
   },
   {
-    "name": "Winston Churchill",
-    "country": "United Kingdom",
-    "yearOfBirth": 1874,
-    "yearOfDeath": 1965,
-    "lengthOfService": "1940-1945, 1951-1955",
-    "fact": "Prime Minister of the United Kingdom during World War II, serving two terms. He is often referred to as the 'Greatest Briton' of the 20th century."
+    "name": "Li Mei Chen",
+    "gender": "female",
+    "race": "Chinese",
+    "class": "Occultist",
+    "backstory": "A skilled practitioner of Eastern mysticism, Li Mei seeks to protect her people from the malevolent forces that threaten to consume them. She carries a deep grudge against the cultists who destroyed her village.",
+    "stats": {
+      "strength": 8,
+      "constitution": 12,
+      "power": 10,
+      "dexterity": 12,
+      "appearance": 10,
+      "size": 5,
+      "intelligence": 12,
+      "education": 12,
+      "luck": 7,
+      "sanity": 13
+    }
   },
   {
-    "name": "Hideki Tojo",
-    "country": "Japan",
-    "yearOfBirth": 1884,
-    "yearOfDeath": 1948,
-    "lengthOfService": "1941-1944",
-    "fact": "Prime Minister of Japan during World War II, responsible for the attack on Pearl Harbor and the Pacific Theater."
-  },
-  {
-    "name": "Benito Mussolini",
-    "country": "Italy",
-    "yearOfBirth": 1883,
-    "yearOfDeath": 1945,
-    "lengthOfService": "1922-1943, 1943-1945",
-    "fact": "Dictator of Italy from 1922 to 1943, leading the country into World War II on the side of the Axis powers."
+    "name": "Father Michael Carter",
+    "gender": "male",
+    "race": "human",
+    "class": "Catholic Priest",
+    "backstory": "A compassionate and devoted priest, Father Carter was assigned to Arkham to help the victims of the occult. He carries a deep faith that he can confront the darkness and save souls, even in the face of cosmic horror.",
+    "stats": {
+      "strength": 10,
+      "constitution": 12,
+      "power": 4,
+      "dexterity": 8,
+      "appearance": 8,
+      "size": 6,
+      "intelligence": 10,
+      "education": 12,
+      "luck": 3,
+      "sanity": 16
+    }
   }
 ]
