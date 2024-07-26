@@ -1,7 +1,27 @@
-import matplotlib
-matplotlib.use('TkAgg')  # or 'Qt5Agg' for PyQt5, etc.
-import matplotlib.pyplot as plt
+"""API for Relevant_Concept_Extractor"""
 
-# Your plotting code here
-plt.plot(range(10), range(10))
-plt.show()
+import dataclasses
+from typing import Union
+
+@dataclasses.dataclass
+class ExtractionResponse:
+"""Extraction response.
+
+Attributes:
+concepts: List of extracted concepts.
+entities: List of extracted entities.
+related_terms: List of extracted related terms.
+"""
+
+concepts: list[str] | None = None
+entities: list[dict] | None = None
+related_terms: list[str] | None = None
+
+def extractConceptsAndEntities(
+text: str,
+) -> ExtractionResponse | dict:
+"""Extract relevant concepts and entities from text.
+
+Args:
+text: The input text for analysis.
+"""
