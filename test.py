@@ -7,7 +7,7 @@ def top_8_game_sales(game_data, graph_type):
     if graph_type == 'bar':
         plt.bar(games, sales, color='green', width=0.8)
     elif graph_type == 'line':
-        plt.plot(games, sales, color='green', marker='o', linestyle='-')
+        plt.plot(games, sales, color='green', marker='o', linewidth=3)
     elif graph_type == 'pie':
         plt.pie(sales, labels=games, autopct='%1.1f%%')
     else:
@@ -15,9 +15,12 @@ def top_8_game_sales(game_data, graph_type):
         return
 
     plt.title("Top 8 Best-Selling Video Games")
+
     if graph_type != 'pie':
         plt.xlabel("Game")
         plt.ylabel("Sales (in millions)")
+        plt.grid(axis='y', color='gray', linestyle='--')
+
     plt.show()
 
 game_data = {
@@ -29,7 +32,7 @@ game_data = {
 
 graph_types = ['bar', 'line', 'pie']
 print("Available Graph Types:", graph_types)
-choice = input("Choose the type of graph (bar, line, pie): ").lower()
+choice = input("Which type of graph would you like to see (bar, line, pie)? ").lower()
 
 while choice not in graph_types:
     choice = input("Invalid choice. Please choose from 'bar', 'line', or 'pie': ").lower()
