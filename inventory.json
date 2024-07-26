@@ -1,140 +1,96 @@
 {
-  "Army Ranks": [
-    {
-      "Rank": "Private (PVT)",
-      "E-1": {
-        "Pay Grade": "E-1",
-        "Basic Pay": "$1,930.00",
-        "Description": "The entry-level rank in the Army, privates perform basic combat training and learn essential military skills.",
-        "Responsibilities": [
-          "Following orders and regulations",
-          "Basic combat training",
-          "Physical fitness and conditioning",
-          "Weapons handling and marksmanship",
-          "Military courtesy and discipline"
-        ]
-      }
+  "gameDevelopmentPlan": {
+    "gameConcept": {
+      "description": "A thrilling 3D platformer centered around a young adventurer's quest to rescue their lost friends from a mysterious, ancient jungle.",
+      "genre": "3D Platformer",
+      "coreMechanics": ["Parkour-style movement", "Environmental puzzles", "Collectible items", "Boss battles"],
+      "artStyle": "Cartoonish and colorful with a touch of fantasy"
     },
-    {
-      "Rank": "Private First Class (PFC)",
-      "E-2": {
-        "Pay Grade": "E-2",
-        "Basic Pay": "$2,078.00",
-        "Description": "PFCs build on the skills learned as privates and advance to more responsibilities within their units.",
-        "Responsibilities": [
-          "Advanced individual training",
-          "Leading and mentoring junior soldiers",
-          "Specialized job duties based on MOS",
-          "Increased accountability and independence",
-          "Advanced weapons training"
+    "developmentChecklist": [
+      {
+        "milestone": "Pre-Production",
+        "tasks": [
+          {
+            "description": "Concept Art and World Design",
+            "tasks": ["Create detailed concept art for the main character, enemies, and environments.", "Design the game world's layout, hidden areas, and secrets."]
+          },
+          {
+            "description": "Game Mechanics and Documentation",
+            "tasks": ["Define and document core game mechanics, controls, and difficulty levels.", "Establish a detailed checkpoint system."]
+          },
+          {
+            "description": "Unity Project Setup",
+            "tasks": ["Create the new Unity project.", "Import essential assets and set up the project's folder structure."]
+          },
+          { "description": "Character Design",
+            "tasks": ["Design and model the main character and key NPCs.", "Create a detailed character progression system."]
+          }
+        ]
+      },
+      {
+        "milestone": "Production",
+        "tasks": [
+          {
+            "description": "Level Development",
+            "tasks": ["Begin building the first playable level.", "Implement core mechanics and test their functionality."]
+          },
+          {
+            "description": "Enemy and AI Programming",
+            "tasks": ["Design and implement basic enemy AI behaviors.", "Create a variety of enemies with different patrol and attack patterns."]
+          },
+          {
+            "description": "Animation and Rigging",
+            "tasks": ["Create smooth character animations for movement, jumping, and interactions.", "Set up rigging for the main character and enemies."]
+          },
+          {  "description": "Audio and SFX",
+            "tasks": ["Compose an initial game soundtrack.", "Implement basic sound effects for footsteps, jumps, and item interactions."]
+          }
+        ]
+      },
+      {
+        "milestone": "Post-Production",
+        "tasks": [
+          {
+            "description": "Polishing and Balancing",
+            "tasks": ["Fine-tune controls, gameplay mechanics, and difficulty levels.", "Implement a robust checkpoint system and game saves."]
+          },
+          {
+            "description": "Level Art and Lighting",
+            "tasks": ["Finalize art assets for all levels.", "Implement lighting and environment dressing to enhance the visual appeal."]
+          },
+          {
+            "description": "UI and HUD",
+            "tasks": ["Design and implement the in-game HUD and menus.", "Create an engaging main menu and pause screen."]
+          },
+          {
+            "description": "Testing and Bug Fixing",
+            "tasks": ["Conduct thorough testing to identify and fix bugs and glitches.", "Address player feedback and comments."]
+          },
+          { "description": "Performance Optimization",
+            "tasks": ["Optimize the game for performance across various platforms.", "Ensure smooth frame rates and efficient resource usage."]
+          }
+        ]
+      },
+      {
+        "milestone": "Launch and Marketing",
+        "tasks": [
+          {
+            "description": "Full Game Build",
+            "tasks": ["Build the final version of the game for target platforms (PC, consoles, mobile)."]
+          },
+          {
+            "description": "Launch Preparation",
+            "tasks": ["Set up store listings and game pages.", "Assemble marketing materials and promotional content."]
+          },
+          {  "description": "Launch and Post-Launch Support",
+            "tasks": ["Launch the game on chosen platforms.", "Provide post-launch support through updates and patches.", "Engage with the community and gather feedback."]
+          },
+          {
+            "description": "Maintenance and Updates",
+            "tasks": ["Plan and schedule future updates.", "Continuously improve and expand the game based on player feedback."]
+          }
         ]
       }
-    },
-    {
-      "Rank": "Specialist (SPC)",
-      "E-4": {
-        "Pay Grade": "E-4",
-        "Basic Pay": "$2,249.00",
-        "Description": "Specialists are skilled enlisted soldiers who have completed advanced individual training in their Military Occupational Specialty (MOS).",
-        "Responsibilities": [
-          "Expertise in a specific MOS",
-          "Supervising soldiers in their area of expertise",
-          "Performing advanced tasks and duties",
-          "Leading small teams and missions",
-          "Continuous skill development and advancement"
-        ]
-      }
-    },
-    {
-      "Rank": "Corporal (CPL)",
-      "E-4": {
-        "Pay Grade": "E-4",
-        "Basic Pay": "$2,249.00",
-        "Description": "Corporals provide leadership and supervision to soldiers in a squad or small team.",
-        "Responsibilities": [
-          "Leading and training soldiers in basic and advanced skills",
-          "Ensuring the unit's readiness and combat efficiency",
-          "Planning and executing small missions",
-          "Maintaining discipline and morale within the squad",
-          "Advanced weapons qualification and training"
-        ]
-      }
-    },
-  {
-      "Rank": "Sergeant (SGT)",
-      "E-5": {
-        "Pay Grade": "E-5",
-        "Basic Pay": "$2,467.00",
-        "Description": "Sergeants are senior non-commissioned officers who lead squads or small teams of soldiers.",
-        "Responsibilities": [
-          "Developing and implementing training programs",
-          "Providing mentorship and career guidance to soldiers",
-          "Assessing and evaluating soldier performance",
-          "Planning and coordinating larger missions",
-          "Increased responsibility for equipment and resources"
-        ]
-      }
-    },
-    {
-      "Rank": "Staff Sergeant (SSG)",
-      "E-6": {
-        "Pay Grade": "E-6",
-        "Basic Pay": "$2,720.00",
-        "Description": "Staff Sergeants serve as senior enlisted advisors to officers and supervise multiple squads or teams.",
-        "Responsibilities": [
-          "Advanced training in leadership, tactics, and military science",
-          "Developing and implementing unit-level training programs",
-          "Overseeing resource allocation and logistics",
-          "Mentoring junior NCOs and Warrant Officers",
-          "Preparing soldiers for deployment and combat"
-        ]
-      }
-    },
-
-    {
-      "Rank": "Sergeant First Class (SFC)",
-      "E-7": {
-        "Pay Grade": "E-7",
-        "Basic Pay": "$3,233.00",
-        "Description": "Sergeant First Class is a senior enlisted leader with advanced technical expertise or a broad range of leadership responsibilities.",
-        "Responsibilities": [
-          "Serving as the senior enlisted advisor to a company-sized unit",
-          "Advanced individual training in a specific skill set",
-          "Developing and implementing training programs at the battalion level",
-          "Mentoring and developing senior NCOs",
-          "Preparing units for complex missions and deployments"
-        ]
-      }
-    },
-
-    {
-      "Rank": "Sergeant Major (SGM)",
-      "E-9": {
-        "Pay Grade": "E-9",
-        "Basic Pay": "$3,972.00",
-        "Description": "The Sergeant Major is the senior enlisted advisor to a battalion or larger unit, providing leadership and guidance to the entire command.",
-        "Responsibilities": [
-          "Overseeing all enlisted personnel in the unit",
-          "Developing and implementing unit-wide training and readiness programs",
-          "Ensuring the professional and personal development of soldiers and NCOs",
-          "Providing strategic advice to the commander",
-          "Representing the unit at higher echelons"
-        ]
-      }
-    },
-
-    {  "Rank": "Command Sergeant Major (CSM)",
-      "E-9": {
-        "Pay Grade": "E-9",
-        "Basic Pay": "$4,613.00",  "Description": "The Command Sergeant Major is the senior enlisted leader of a brigade or larger unit, responsible for the overall enlisted welfare and training.",
-        "Responsibilities": [
-          "Developing and implementing brigade-wide training and readiness programs",
-          "Overseeing the professional and personal development of all enlisted personnel",
-          "Providing strategic advice to the brigade commander",
-          "Ensuring compliance with Army regulations and policies",
-          "Representing the brigade at higher echelons"
-        ]
-      }
-    }
-  ]
+    ]
+  }
 }
