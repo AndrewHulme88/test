@@ -1,97 +1,168 @@
-[
-  {
-    "name": "Edgar 'Eddie' Blackwood",
-    "gender": "male",
-    "race": "human",
-    "class": "Archaeologist",
-    "backstory": "A brilliant but reckless archaeologist, Eddie stumbled upon an ancient, forbidden cult while excavating a dig in Miskatonic University. Driven by his insatiable thirst for knowledge, he now finds himself entangled in a web of cosmic horrors.",
-    "stats": {
-      "strength": 8,
-      "constitution": 12,
-      "power": 6,
-      "dexterity": 10,
-      "appearance": 10,
-      "size": 6,
-      "intelligence": 14,
-      "education": 16,
-      "luck": 4,
-      "sanity": 13
+{
+  "Military Ranks": [
+    {
+      "Army": "Private (PVT)",
+      "Navy": "Seaman Recruit (SEAMAN RECRUIT)",
+      "Air Force": "Airman Basic (AIRMAN BASIC)",
+      "Marine Corps": "Private (PVT)",
+      "Space Force": "Airman Basic (AIRMAN BASIC)"
+    },
+    {
+      "Army": "Private First Class (PFC)",
+      "Navy": "Seaman Apprentice (SEAMAN APPRENTICE)",
+      "Air Force": "Airman (AIRMAN)",
+      "Marine Corps": "Private First Class (PFC)",
+      "Space Force": "Airman (AIRMAN)"
+    },
+    {
+      "Army": "Specialist (SPC)",
+      "Navy": "Seaman (SEAMAN)",
+      "Air Force": "Airman First Class (AIRMAN FIRST CLASS)",
+      "Marine Corps": "Lance Corporal (LCPL)",
+      "Space Force": "Airman First Class (AIRMAN FIRST CLASS)"
+    },
+    {
+      "Army": "Corporal (CPL)",
+      "Navy": "Petty Officer Third Class (PO3)",
+      "Air Force": "Senior Airman (SENIOR AIRMAN)",
+      "Marine Corps": "Corporal (CPL)",
+      "Space Force": "Senior Airman (SENIOR AIRMAN)"
+    },
+    {
+      "Army": "Sergeant (SGT)",
+      "Navy": "Petty Officer Second Class (PO2)",
+      "Air Force": "Staff Sergeant (STAFF SERGEANT)",
+      "Marine Corps": "Sergeant (SGT)",
+      "Space Force": "Staff Sergeant (STAFF SERGEANT)"
+    },
+    {
+      "Army": "Staff Sergeant (SSG)",
+      "Navy": "Petty Officer First Class (PO1)",
+      "Air Force": "Technical Sergeant (TECHNICAL SERGEANT)",
+      "Marine Corps": "Staff Sergeant (SSGT)",
+      "Space Force": "Technical Sergeant (TECHNICAL SERGEANT)"
+    },
+    {
+      "Army": "Sergeant First Class (SFC)",
+      "Navy": "Chief Petty Officer Second Class (CPO2)",
+      "Air Force": "Master Sergeant (MASTER SERGEANT)",
+      "Marine Corps": "Gunnery Sergeant (GYSGT)",
+      "Space Force": "Master Sergeant (MASTER SERGEANT)"
+    },
+    {
+      "Army": "Sergeant Major (SGM)",
+      "Navy": "Chief Petty Officer First Class (CPO1)",
+      "Air Force": "Senior Master Sergeant (SENIOR MASTER SERGEANT)",
+      "Marine Corps": "Sergeant Major (SGM)",
+      "Space Force": "Senior Master Sergeant (SENIOR MASTER SERGEANT)"
+    },
+   {
+      "Army": "Command Sergeant Major (CSM)",
+      "Navy": "Master Chief Petty Officer (MCPO)",
+      "Air Force": "Chief Master Sergeant (CHIEF MASTER SERGEANT)",
+      "Marine Corps": "Sergeant Major of the Marine Corps (SMAJMC)",
+      "Space Force": "Chief Master Sergeant (CHIEF MASTER SERGEANT)"
+    },
+    {
+      "Army": "Warrant Officer One (1WO)",
+      "Navy": "-",      "Air Force": "-",      "Marine Corps": "Warrant Officer (WO)",    "Space Force": "-"
+    },
+    {
+      "Army": "Warrant Officer Two (2WO)",
+      "Navy": "-",
+      "Air Force": "-",
+      "Marine Corps": "Chief Warrant Officer (CWO)",
+      "Space Force": "-"
+    },
+    {
+      "Army": "Warrant Officer Three (3WO)",
+      "Navy": "-",
+      "Air Force": "-",
+      "Marine Corps": "First Sergeant (1SG)",
+      "Space Force": "-"
+    },
+    {  "Army": "Warrant Officer Four (4WO)",
+      "Navy": "Master Chief Petty Officer of the Navy (MCPON)",
+      "Air Force": "Chief Master Sergeant of the Air Force (CMSAF)",
+      "Marine Corps": "Command Sergeant Major of the Marine Corps (CSMAJMC)",
+      "Space Force": "Chief of Space Operations (CSO)"
+    },
+    {
+      "Army": "Second Lieutenant (2LT)",
+      "Navy": "Ensign (ENS)",
+      "Air Force": "Second Lieutenant (2LT)",
+      "Marine Corps": "Second Lieutenant (2LT)",
+      "Space Force": "Second Lieutenant (2LT)"
+    },
+    {
+      "Army": "First Lieutenant (1LT)",
+      "Navy": "Lieutenant (LT)",
+      "Air Force": "First Lieutenant (1LT)",
+      "Marine Corps": "First Lieutenant (1LT)",
+      "Space Force": "First Lieutenant (1LT)"
+    },
+    {
+      "Army": "Captain (CPT)",
+      "Navy": "Lieutenant Commander (LCDR)",
+      "Air Force": "Captain (CPT)",
+      "Marine Corps": "Captain (CPT)",
+      "Space Force": "Captain (CPT)"
+    },
+    {
+      "Army": "Major (MAJ)",
+      "Navy": "Commander (CDR)",
+      "Air Force": "Major (MAJ)",
+      "Marine Corps": "Major (MAJ)",
+      "Space Force": "Major (MAJ)"
+    },
+    {
+      "Army": "Lieutenant Colonel (LTC)",
+      "Navy": "Captain (CAPT)",
+      "Air Force": "Lieutenant Colonel (LTC)",
+      "Marine Corps": "Lieutenant Colonel (LTC)",
+      "Space Force": "Lieutenant Colonel (LTC)"
+    },
+    {
+      "Army": "Colonel (COL)",
+      "Navy": "Rear Admiral Lower Half (RDML)",
+      "Air Force": "Colonel (COL)",
+      "Marine Corps": "Colonel (COL)",
+      "Space Force": "Colonel (COL)"
+    },
+    {
+      "Army": "Brigadier General (BG)",
+      "Navy": "Rear Admiral Upper Half (RADM)",
+      "Air Force": "Brigadier General (BG)",
+      "Marine Corps": "Brigadier General (BG)",
+      "Space Force": "Brigadier General (BG)"
+    },
+    {
+      "Army": "Major General (MG)",
+      "Navy": "Vice Admiral (VADM)",
+      "Air Force": "Major General (MG)",
+      "Marine Corps": "Major General (MG)",
+      "Space Force": "Major General (MG)"
+    },
+    {
+      "Army": "Lieutenant General (LTG)",
+      "Navy": "Admiral Lower Half (ADML)",
+      "Air Force": "Lieutenant General (LTG)",
+      "Marine Corps": "Lieutenant General (LTG)",
+      "Space Force": "Lieutenant General (LTG)"
+    },
+    {
+      "Army": "General (GEN)",
+      "Navy": "Admiral Upper Half (ADM)",
+      "Air Force": "General (GEN)",
+      "Marine Corps": "General (GEN)",
+      "Space Force": "General (GEN)"
+    },
+    {
+      "Army": "General of the Army (GENA)",
+      "Navy": "-",
+      "Air Force": "-",
+      "Marine Corps": "-",
+      "Space Force": "General of the Space Force (GENSFOR)"
     }
-  },
-  {
-    "name": "Abigail 'Abby' Turner",
-    "gender": "female",
-    "race": "human",
-    "class": "Private Investigator",
-    "backstory": "A former journalist turned private investigator, Abby is haunted by a past case that exposed government cover-ups. She now uses her skills to uncover the truth, often finding herself drawn to the occult and the supernatural.",
-    "stats": {
-      "strength": 10,
-      "constitution": 12,
-      "power": 4,
-      "dexterity": 12,
-      "appearance": 12,
-      "size": 6,
-      "intelligence": 12,
-      "education": 14,
-      "luck": 6,
-      "sanity": 14
-    }
-  },
-  {
-    "name": "Henry 'Hank' West",
-    "gender": "male",
-    "race": "human",
-    "class": "Rookie Cop",
-    "backstory": "An eager and idealistic young police officer, Hank was recently transferred to Arkham to work on a special task force investigating occult crimes. Determined to prove himself, he is unafraid to confront the dark forces he encounters.",
-    "stats": {
-      "strength": 12,
-      "constitution": 14,
-      "power": 2,
-      "dexterity": 10,
-      "appearance": 8,
-      "size": 6,
-      "intelligence": 10,
-      "education": 12,
-      "luck": 5,
-      "sanity": 15
-    }
-  },
-  {
-    "name": "Li Mei Chen",
-    "gender": "female",
-    "race": "Chinese",
-    "class": "Occultist",
-    "backstory": "A skilled practitioner of Eastern mysticism, Li Mei seeks to protect her people from the malevolent forces that threaten to consume them. She carries a deep grudge against the cultists who destroyed her village.",
-    "stats": {
-      "strength": 8,
-      "constitution": 12,
-      "power": 10,
-      "dexterity": 12,
-      "appearance": 10,
-      "size": 5,
-      "intelligence": 12,
-      "education": 12,
-      "luck": 7,
-      "sanity": 13
-    }
-  },
-  {
-    "name": "Father Michael Carter",
-    "gender": "male",
-    "race": "human",
-    "class": "Catholic Priest",
-    "backstory": "A compassionate and devoted priest, Father Carter was assigned to Arkham to help the victims of the occult. He carries a deep faith that he can confront the darkness and save souls, even in the face of cosmic horror.",
-    "stats": {
-      "strength": 10,
-      "constitution": 12,
-      "power": 4,
-      "dexterity": 8,
-      "appearance": 8,
-      "size": 6,
-      "intelligence": 10,
-      "education": 12,
-      "luck": 3,
-      "sanity": 16
-    }
-  }
-]
+  ]
+}
