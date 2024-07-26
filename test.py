@@ -1,27 +1,31 @@
-"""API for Relevant_Concept_Extractor"""
+import matplotlib.pyplot as plt
 
-import dataclasses
-from typing import Union
+def top_8_game_sales(game_data):
+    # Extract game names and sales from the input dictionary
+    games = list(game_data.keys())
+    sales = list(game_data.values())
 
-@dataclasses.dataclass
-class ExtractionResponse:
-"""Extraction response.
+    # Plot a bar graph using Matplotlib
+    plt.bar(games, sales, color='green', width=0.8)
 
-Attributes:
-concepts: List of extracted concepts.
-entities: List of extracted entities.
-related_terms: List of extracted related terms.
-"""
+    # Set the plot title and axis labels
+    plt.title("Top 8 Best-Selling Video Games")
+    plt.xlabel("Game")
+    plt.ylabel("Sales (in millions)")
 
-concepts: list[str] | None = None
-entities: list[dict] | None = None
-related_terms: list[str] | None = None
+    # Show the grid lines and display the plot
+    plt.grid(axis='y', color='gray', linestyle='--')
+    plt.show()
 
-def extractConceptsAndEntities(
-text: str,
-) -> ExtractionResponse | dict:
-"""Extract relevant concepts and entities from text.
+game_data = {
+        "The Elder Scrolls V: Skyrim": 60,
+        "Red Dead Redemption 2": 64,
+        "Mario Kart 8 Deluxe" : 70.43,
+        "PUBG": 75,
+        "Wii Sports": 82.9,
+        "Grand Theft Auto V": 200,
+        "Minecraft": 300,
+        "Tetris": 520
+        }
 
-Args:
-text: The input text for analysis.
-"""
+top_8_game_sales(game_data)
