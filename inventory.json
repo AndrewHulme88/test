@@ -1,96 +1,193 @@
 {
-  "gameDevelopmentPlan": {
-    "gameConcept": {
-      "description": "A thrilling 3D platformer centered around a young adventurer's quest to rescue their lost friends from a mysterious, ancient jungle.",
-      "genre": "3D Platformer",
-      "coreMechanics": ["Parkour-style movement", "Environmental puzzles", "Collectible items", "Boss battles"],
-      "artStyle": "Cartoonish and colorful with a touch of fantasy"
+  "hunting_strategies": [
+    {
+      "era": "Paleolithic",
+      "strategies": [
+        "Spear Hunting",
+        "Bow and Arrow Hunting"
+      ],
+      "tactics": [
+        "Ambush Hunting",
+        "Persistent Stalking"
+      ],
+      "tools": [
+        {
+          "name": "Stone Tools",
+          "description": "Flint knives, scrapers, and other stone implements for processing game."
+        },
+        {
+          "name": "Wooden Spears",
+          "description": "Early spears made from wooden shafts and stone or bone points."
+        }
+      ]
     },
-    "developmentChecklist": [
-      {
-        "milestone": "Pre-Production",
-        "tasks": [
-          {
-            "description": "Concept Art and World Design",
-            "tasks": ["Create detailed concept art for the main character, enemies, and environments.", "Design the game world's layout, hidden areas, and secrets."]
-          },
-          {
-            "description": "Game Mechanics and Documentation",
-            "tasks": ["Define and document core game mechanics, controls, and difficulty levels.", "Establish a detailed checkpoint system."]
-          },
-          {
-            "description": "Unity Project Setup",
-            "tasks": ["Create the new Unity project.", "Import essential assets and set up the project's folder structure."]
-          },
-          { "description": "Character Design",
-            "tasks": ["Design and model the main character and key NPCs.", "Create a detailed character progression system."]
-          }
-        ]
-      },
-      {
-        "milestone": "Production",
-        "tasks": [
-          {
-            "description": "Level Development",
-            "tasks": ["Begin building the first playable level.", "Implement core mechanics and test their functionality."]
-          },
-          {
-            "description": "Enemy and AI Programming",
-            "tasks": ["Design and implement basic enemy AI behaviors.", "Create a variety of enemies with different patrol and attack patterns."]
-          },
-          {
-            "description": "Animation and Rigging",
-            "tasks": ["Create smooth character animations for movement, jumping, and interactions.", "Set up rigging for the main character and enemies."]
-          },
-          {  "description": "Audio and SFX",
-            "tasks": ["Compose an initial game soundtrack.", "Implement basic sound effects for footsteps, jumps, and item interactions."]
-          }
-        ]
-      },
-      {
-        "milestone": "Post-Production",
-        "tasks": [
-          {
-            "description": "Polishing and Balancing",
-            "tasks": ["Fine-tune controls, gameplay mechanics, and difficulty levels.", "Implement a robust checkpoint system and game saves."]
-          },
-          {
-            "description": "Level Art and Lighting",
-            "tasks": ["Finalize art assets for all levels.", "Implement lighting and environment dressing to enhance the visual appeal."]
-          },
-          {
-            "description": "UI and HUD",
-            "tasks": ["Design and implement the in-game HUD and menus.", "Create an engaging main menu and pause screen."]
-          },
-          {
-            "description": "Testing and Bug Fixing",
-            "tasks": ["Conduct thorough testing to identify and fix bugs and glitches.", "Address player feedback and comments."]
-          },
-          { "description": "Performance Optimization",
-            "tasks": ["Optimize the game for performance across various platforms.", "Ensure smooth frame rates and efficient resource usage."]
-          }
-        ]
-      },
-      {
-        "milestone": "Launch and Marketing",
-        "tasks": [
-          {
-            "description": "Full Game Build",
-            "tasks": ["Build the final version of the game for target platforms (PC, consoles, mobile)."]
-          },
-          {
-            "description": "Launch Preparation",
-            "tasks": ["Set up store listings and game pages.", "Assemble marketing materials and promotional content."]
-          },
-          {  "description": "Launch and Post-Launch Support",
-            "tasks": ["Launch the game on chosen platforms.", "Provide post-launch support through updates and patches.", "Engage with the community and gather feedback."]
-          },
-          {
-            "description": "Maintenance and Updates",
-            "tasks": ["Plan and schedule future updates.", "Continuously improve and expand the game based on player feedback."]
-          }
-        ]
-      }
-    ]
-  }
+    {   "era": "Mesolithic",
+      "strategies": [
+        "Net Hunting",
+        "Atlatl Hunting"
+      ],   "tactics": [
+        "Drive Hunting",
+        "Cooperative Hunting"
+      ],   "tools": [
+        {
+          "name": "Atlatl",
+          "description": "A wooden dart thrower used for propelling spear-like projectiles with greater accuracy."
+        },
+        {
+          "name": "Bone and Antler Tools",
+          "description": "Refined bone and antler tools for butchering and processing game."
+        },
+{
+          "name": "Wooden Bows",
+          "description": "Improved wooden bows for hunting larger game."
+        }
+      ]
+    },
+    {
+      "era": "Neolithic",
+      "strategies": [
+        "Hunting with Dogs",
+        "Fishing"
+      ],
+      "tactics": [
+        "Setting Traps",
+        "Luring with Food"
+      ],
+      "tools": [
+        {
+          "name": "Stone Axes",
+          "description": "Advanced stone axes for cutting down trees and processing game."
+        },
+        {
+          "name": "Pottery",
+          "description": "The development of pottery allowed for the storage of food and transportation of water, enhancing hunting expeditions."
+        },
+        {
+          "name": "Dog Collars and Leashes",
+          "description": "The domestication of dogs allowed for better hunting companions and tracking abilities."
+        }
+      ]
+    },
+    {
+      "era": "Bronze Age",
+      "strategies": [
+        "Horseback Riding",
+        "Camel Riding in Arid Regions"
+      ],
+      "tactics": [
+        "Flanking Maneuvers",
+        "Surround Hunting"
+      ],
+      "tools": [
+        {
+          "name": "Bronze Weapons",
+          "description": "The introduction of bronze weapons, such as swords and bows, gave hunters a tactical advantage."
+        },
+        {
+          "name": "Chariots",
+          "description": "The invention of chariots allowed for more coordinated and mobile hunting parties."
+        },
+{
+          "name": "Advanced Pottery",
+          "description": "Improved pottery techniques led to the development of specialized hunting containers and cooking utensils."
+        }      ]
+    },
+    {
+      "era": "Iron Age",
+      "strategies": [
+        "Strategic Hunting Preserves",
+        "Using Hunting Dogs for Drives"
+      ],   "tactics": [
+        "Ambush from Elevated Positions",   "Using Terrain to Advantage"
+      ],   "tools": [
+        {
+          "name": "Iron Weapons and Tools",
+          "description": "Iron weapons and tools became more prevalent, improving hunting efficiency and effectiveness."
+        },
+        {
+          "name": "Advanced Siege Weapons",
+          "description": "In some regions, hunters began using siege weapons like ballistas to attack fortified game enclosures."
+        }
+      ]
+    },
+    {
+     "era": "Medieval Period",
+      "strategies": [
+        "Hunting with Falconry",
+        "Castle Deer Parks"
+      ],
+      "tactics": [
+       "Feeding Game to Lions and Bears in Hunting Preserves",
+        "Formation Hunting"
+      ],
+      "tools": [
+        {
+         "name": "Crossbows",
+          "description": "Crossbows became popular during this era, providing a longer range and greater penetrating power."
+        },
+        {
+          "name": "Hunting Blinds and Hideouts",
+          "description": "The development of hunting blinds and hideouts allowed hunters to observe game more stealthily."
+        },
+        {
+          "name": "Stirrups and Better Horse Tack",
+          "description": "Improved horse equipment facilitated mounted hunting over longer distances and varied terrains."
+        }
+      ]
+    },
+   {
+      "era": "Early Modern Period",
+      "strategies": [
+        "Long-Range Shooting with Muskets",
+        "Hunting in Colonial Outposts"
+      ],
+      "tactics": [
+        "Mobile Hunting Parties",
+        "Setting Up Hunting Lodges"
+      ],
+      "tools": [
+        {
+          "name": "Muskets and Flintlock Rifles",
+          "description": "The development of muskets and later flintlock rifles significantly increased hunting ranges and accuracy."
+        },
+        {
+          "name": "Cartography and Surveying",
+          "description": "Improved cartographic techniques allowed hunters to explore and map vast wilderness areas effectively."
+        },
+        {
+         "name": "Game Calls and Decoys",
+          "description": "The invention of game calls and decoys enabled hunters to simulate prey behavior and attract animals."
+        }
+      ]
+    },
+    {
+      "era": "Modern Era",
+      "strategies": [
+        "Big-Game Hunting with Rifles",
+        "Small-Game Hunting with Shotguns"
+      ],
+      "tactics": [
+        "Helicopter Hunting",
+        "Using Trail Cameras for Game Monitoring"
+      ],
+      "tools": [
+        {
+          "name": "High-Powered Rifles",
+          "description": "The development of modern high-powered rifles enabled precise and ethical long-range hunting."
+        },
+        {
+          "name": "Advanced Optics",
+          "description": "The invention of telescopic sights and spotting scopes improved hunters' accuracy and observation capabilities."
+        },
+        {
+          "name": "All-Terrain Vehicles (ATVs) and Snowmobiles",
+          "description": "ATVs and snowmobiles revolutionized access to remote hunting areas, making expeditions more efficient."
+        },
+        {
+          "name": "Environmental Awareness and Conservation",
+          "description": "In the modern era, hunting practices increasingly emphasize environmental sustainability and conservation efforts."
+        }
+      ]
+     }
+  ]
 }
