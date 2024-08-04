@@ -1,67 +1,105 @@
-# Import the pygame library and initialise the game engine
-import pygame
-from random import randint
+import dataclasses
+import uuid
+from typing import List, Optional
 
-pygame.init()
+@dataclasses.dataclass
+class ShoppingList:
+    id: Optional[str] = None
+    name: Optional[str] = None
+    items: Optional[List['ShoppingListItem']] = None
 
-# Define some colors
-BLACK = (0, 0, 0)
-WHITE = (255, 255, 255)
-GREEN = (0, 255, 0)
-RED = (255, 0, 0)
-YELLOW = (255, 255, 0)
-BRIGHT_YELLOW = (255, 255, 100)
+@dataclasses.dataclass
+class ShoppingListItem:
+    id: Optional[str] = None
+    name: Optional[str] = None
+    quantity: Optional[int] = None
+    unit: Optional[str] = None
+    purchased: Optional[bool] = None
+    category: Optional[str] = None
+    notes: Optional[str] = None
+    priority: Optional[str] = None
 
-# Set the height and width of the screen
-WIDTH, HEIGHT = 800, 600
-win = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Rags to Riches: Idle Clicker")
+# Mock database
+lists_db = {}
 
-# Load the font
-font = pygame.font.SysFont('Monospace Regular', 32)
-small_font = pygame.font.SysFont('Monospace Regular', 20)
+def generate_id() -> str:
+    return str(uuid.uuid4())
 
-# Clock to control frame rate
-clock = pygame.time.Clock()
+def createList(id: Optional[str] = None, name: Optional[str] = None, items: Optional[List[ShoppingListItem]] = None) -> ShoppingList:
+    if id is None:
+        id = generate_id()
+    if id in lists_db:
+        raise ValueError("List ID already exists.")
+    shopping_list = ShoppingList(id=id, name=name, items=items or [])
+    lists_db[id] = shopping_list
+    return shopping_list
 
-# Player class
-class Player:
-    def __init__(self, x, y, width, height):
-        self.x = x
-        self.y = y
-        self.width = width
-        self.height = height
-        self.color = YELLOW
-        self.click_damage = 1
-        self.money = 0
-        self.idle_income = 0
-        self.upgrades = []
-        self.current_home = "Shed"  # Initialize current home
-        self.home_costs = {"Shed": 10, "Apartment": 100, "House": 500, "Mansion": 2000}  # Add cost of different homes
+def getAllLists() -> List[ShoppingList]:
+    return list(lists_db.values())
 
-    def draw(self, win):
-        pygame.draw.rect(win, self.color, (self.x, self.y, self.width, self.height))
-        money_text = font.render(f"${int(self.money)}", 1, WHITE)
-        win.blit(money_text, (self.x + 10, self.y + 10))
-        home_text = font.render(f"Current Home: {self.current_home}", 1, WHITE)
-        win.blit(home_text, (200, 50))
+def updateListItems(
+    list_id: str,
+    item_ids: str,
+    name: Optional[str] = None,
+    quantity: Optional[int] = None,
+    unit: Optional[str] = None,
+    purchased: Optional[bool] = None,
+    category: Optional[str] = None,
+    notes: Optional[str] = None,
+    priority: Optional[str] = None,
+) -> ShoppingList:
+    if list_id not in lists_db:
+        raise ValueError("Shopping list ID not found.")
 
-    def is_clicked(self, pos):
-        return pos[0] > self.x and pos[0] < self.x + self.width and pos[1] > self.y and pos[1] < self.y + self.height
+    shopping_list = lists_db[list_id]
+    item_ids = item_ids.split(',')
 
-    def click_me(self):
-        self.money += self.click_damage
+    for item in shopping_list.items:
+        if item.id in item_ids:
+            if name is not None:
+                item.name = name
+            if quantity is not None:
+                if quantity < 0:
+                    raise ValueError("Quantity cannot be negative.")
+                item.quantity = quantity
+            if unit is not None:
+                item.unit = unit
+            if purchased is not None:
+                item.purchased = purchased
+            if category is not None:
+                item.category = category
+            if notes is not None:
+                item.notes = notes
+            if priority is not None:
+                if priority not in {"high", "medium", "low"}:
+                    raise ValueError("Invalid priority level.")
+                item.priority = priority
 
-    def apply_idle_income(self):
-        self.money += self.idle_income
+    return shopping_list
 
-    def apply_upgrades(self):
-        for upgrade in self.upgrades:
-            upgrade.apply_effect()
-
-    def buy_home(self, home):
-        if self.money >= self.home_costs[home]:
-            self.money -= self.home_costs[home]
-            self.current_home = home
-            # Update idle income based on new home
-            self.idle_income = self.home_costs[home] // 10
+shopWellList.createList(
+    id="f866d78a-4ff0-4a60-a443-530eb2f53a7c",
+    name="Grocery, Shopping",
+    items=[
+        ShoppingListItem(
+            id="1",
+            name="Milk",
+            quantity=1,
+            unit="gallon",
+            purchased=False,
+            category="dairy",
+            notes="Get, the lactose-free, kind",
+            priority="high",
+        ),
+        ShoppingListItem(
+            id="2",
+            name="Eggs",
+            quantity=1,
+            unit="dozen",
+            purchased=False,
+            category="dairy",
+            notes=None,
+            priority="medium",
+        ),
+    ],
+)
